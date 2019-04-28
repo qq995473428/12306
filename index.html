@@ -160,7 +160,7 @@
             </ul>
             <div class="yuandian">
                 <ul class="dot" id="dot">
-                    <li class="item" ></li>
+                    <li class="item dotactive" ></li>
                     <li class="item"></li>
                     <li class="item"></li>
                     <li class="item"></li>
@@ -210,6 +210,9 @@
                             </ul>
                         </div>
                         <div class="form">
+                            <div class="border">
+                                <i class="icon-orange"></i>
+                            </div>
                             <div class="go">
                                 出发地：<input type="text" placeholder="简拼/全拼/汉字">
                                 <a href=""><i class="icon-place"></i></a> 
@@ -496,8 +499,7 @@
     var timer;
     window.onload=function(){
       var lilist=document.getElementsByClassName("dot")[0].getElementsByTagName("li");
-      lilist[0].style.opacity="1";
-    
+      
       showTime();
       function showTime(){
           timer=setInterval(function(){
@@ -507,6 +509,7 @@
                $(".pic").animate({
                    left: "-"+width+"px"
                })
+               
                if(count>=$(".pic li").length-1){
                    count=$(".pic li").length-1;
                    isgo=true;
@@ -519,11 +522,10 @@
                
            }
            for(var i=0;i<lilist.length;i++){
-              lilist[i].style.opacity="0.3";
-              lilist[count].style.opacity="1";
-       
-             
+               lilist[i].classList.remove("dotactive");
+               lilist[count].classList.add("dotactive");
            }
+          
           
            
             
@@ -536,11 +538,18 @@
     $(".pic li").on("mouseout",function(){
         showTime();
     });
-   for(var i=0;i<lilist.length;i++){
-        lilist[i].onclick=function(){
-           lilist[i].style.opacity="1";
-       }
-   }
+    $(".dot li").click(function(){
+               $(this).addClass("dotactive");
+               $(this).siblings($(this)).removeClass("dotactive");
+               var width=($('.pic img').width()*$(this).index());
+                $(".pic").animate({
+                   left: "-"+width+"px"
+               })
+              
+           });
+   
+   
+   
    
     };
        

@@ -233,6 +233,29 @@ i{
     left: 435px;
     top: 169px;
 }
+.border{
+    width: 30px;
+    height: 50px;
+    border-top: 1px solid rgb(222, 222, 222);
+    border-bottom: 1px solid rgb(222, 222, 222);
+    border-right: 1px solid rgb(222, 222, 222);
+    position: absolute;
+    top: 85px;
+    right: 22px;
+}
+.icon-orange::after{
+    content: "\e60d";
+    font-family: icon;
+    position: absolute;
+    font-size: 18px;
+    right: -9px;
+    cursor: pointer;
+    top: 15px;
+    border-radius: 100%;
+    color: white;
+    background: rgb(255, 130, 1);
+   
+}
 .pic{
    height: 450px;   
    position: relative;
@@ -285,8 +308,9 @@ i{
     opacity: 0.3;
     cursor: pointer;
     position: relative;
-   
-   
+}
+.dotactive{
+    opacity: 1!important;
 }
 
 .ticket{
