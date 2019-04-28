@@ -10,6 +10,10 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
+            var picWidth = $(".pic");
+            var imgWidth = $(".pic img");
+            imgWidth.css("width", $(".lunbo").width);
+            picWidth.css("width", $(".pic img").width() * 4);
             $(window).resize(function(){
                 $(".pic img").css("width",$(".lunbo").width(),"height","auto");
                 
@@ -467,10 +471,7 @@
         },function(){
             $(".dropdown").css("display","none");
         });
-        var picWidth = $(".pic");
-        var imgWidth = $(".pic img");
-        imgWidth.css("width", $(".lunbo").width);
-        picWidth.css("width", $(".pic img").width() * 4);
+      
       
         $(".ticket-left div").click(function(){
          $(this).siblings('div').removeClass('cl');
@@ -499,7 +500,15 @@
     var timer;
     window.onload=function(){
       var lilist=document.getElementsByClassName("dot")[0].getElementsByTagName("li");
-      
+      $(".dot li").click(function(){
+               $(this).addClass("dotactive");
+               $(this).siblings($(this)).removeClass("dotactive");
+               var width=($('.pic img').width()*$(this).index());
+                $(".pic").animate({
+                   left: "-"+width+"px"
+               })
+              
+           });
       showTime();
       function showTime(){
           timer=setInterval(function(){
@@ -538,15 +547,7 @@
     $(".pic li").on("mouseout",function(){
         showTime();
     });
-    $(".dot li").click(function(){
-               $(this).addClass("dotactive");
-               $(this).siblings($(this)).removeClass("dotactive");
-               var width=($('.pic img').width()*$(this).index());
-                $(".pic").animate({
-                   left: "-"+width+"px"
-               })
-              
-           });
+   
    
    
    
