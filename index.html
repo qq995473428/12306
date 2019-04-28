@@ -500,15 +500,7 @@
     var timer;
     window.onload=function(){
       var lilist=document.getElementsByClassName("dot")[0].getElementsByTagName("li");
-      $(".dot li").click(function(){
-               $(this).addClass("dotactive");
-               $(this).siblings($(this)).removeClass("dotactive");
-               var width=($('.pic img').width()*$(this).index());
-                $(".pic").animate({
-                   left: "-"+width+"px"
-               })
-              
-           });
+     
       showTime();
       function showTime(){
           timer=setInterval(function(){
@@ -525,7 +517,7 @@
                }
 
             }
-           else{
+            else{
             count=-1;
             isgo=false;
                
@@ -540,7 +532,18 @@
             
           },4000);   
       }
-
+      $(".dot li").click(function(){
+               $(this).addClass("dotactive");
+               $(this).siblings($(this)).removeClass("dotactive");
+               var width=($('.pic img').width()*$(this).index());
+               count=$(this).index()-1;
+                $(".pic").animate({
+                   left: "-"+width+"px"
+               })
+             
+               
+              
+           });
     $(".pic li").on("mouseover",function(){
         clearInterval(timer);
     });
