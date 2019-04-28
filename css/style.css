@@ -142,18 +142,55 @@ i{
 
 }
 
-/* .dropdown{
+.dropdown{
     width: 1190px;
-    height: 200px;
-    background: rgb(0, 0, 0);
-    position: relative;
-    z-index: 111;
+    opacity: 0.9;
+    background: rgb(247, 247, 249);
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    z-index: 11;
+    margin-left: -595px;
+    padding: 14px 0;
     border: 1px solid rgb(59, 153, 252);
     display: none;
-    
-    
-} */
+  
+}
 
+.dropdown h4{
+    color: rgb(59, 153, 254);
+    margin-left: 30px;
+    margin-bottom: 6px;
+}
+.dropdown ul li{
+    margin-left:30px;
+    margin-top: 5px;
+    width: 194px;
+    color: #666;
+    font-size:15px;
+    
+}
+.dropdown ul{
+    border-right: 1px solid rgb(59, 153, 252);
+    width: 194px;
+    height: 59px;
+}
+.rh1{
+    width: 194px;
+    float: left;
+}
+.bd1{
+    height: 85px;
+    border-right: 1px solid rgb(59, 153, 252);
+}
+.rh1 span{
+    margin-left: 30px;
+    font-size:15px;
+    margin-top: 25px;
+    font-size: 15px;
+    color: #666;
+    display: block;
+}
 .lunbo{
     width: 100%;
    
@@ -161,7 +198,41 @@ i{
     overflow: hidden;
    
 }
-
+.icon-place::after{
+    content: "\e6b9";
+    font-family: icon;
+    font-size: 18px;
+    color: rgb(220, 220, 220);
+    position: absolute;
+    left: 435px;
+    top: 80px;
+   
+}
+.icon-place1::after{
+    content: "\e6b9";
+    font-family: icon;
+    font-size: 18px;
+    color: rgb(220, 220, 220);
+    position: absolute;
+    left: 435px;
+    top: 125px;
+   
+}
+.go a:hover .icon-place::after,.go a:hover .icon-place1::after{
+    color: rgb(59, 153, 254);
+}
+.date a:hover .icon-date::after{
+    color: rgb(59, 153, 254);
+}
+.icon-date::after{
+    content: "\e6c1";
+    font-family: icon;
+    font-size: 18px;
+    color: rgb(220, 220, 220);
+    position: absolute;
+    left: 435px;
+    top: 169px;
+}
 .pic{
    height: 450px;   
    position: relative;
@@ -192,46 +263,8 @@ i{
     transition: transform 0.5s;
     transform: rotate(180deg);
 }
-/* .nav-ul li:hover .dropdown{
-    display: block;
-} */
-.nav-ul:hover .nav-active::after{
-    content: "";
-    display: block;
-    width: 1190px;
-    height: 200px;
-    background: rgb(0, 0, 0);
-    position: relative;
-    z-index: 2;
-    border: 1px solid rgb(59, 153, 252);
 
-}
-/* @keyframes change{
-    0%{
-        left: 0;
-    }
-    30%{
-        left: 0;
-    }
-    33%{
-        left: -100vw;
-    }
-    63%{
-        left: -100vw;
-    }
-    66%{
-        left: -200vw;
-    }
-    77%{
-        left: -200vw;
-    }
-    88%{
-        left: -300vw;
-    }
-    100%{
-        left: -300vw;
-    }
-} */
+
 .yuandian{
     position: absolute;
     left: 50%;

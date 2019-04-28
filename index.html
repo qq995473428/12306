@@ -98,14 +98,12 @@
             <div class="nav-list">
                 <ul class="nav-ul">
                     <li class="nav-active">首页
-
+                        
                     </li>
                     <li>
                         <span>
                             车票<i class="ro"></i>
-                            <div class="dropdown">
-
-                            </div>
+                     
                         </span>
 
                     </li>
@@ -119,7 +117,41 @@
             </div>
         </div>
         <div class="lunbo">
-
+            <div class="dropdown">
+           
+            <div class="rh1">
+                    <h4>购买</h4>
+                    <ul>
+                        <li>单程</li>
+                        <li>接续换乘</li>
+                    </ul>
+            </div>
+            <div class="rh1 bd1">
+                    <span>往返</span>
+            </div>
+            <div class="rh1">
+                    <h4>变更</h4>
+                    <ul>
+                        <li>退票</li>
+                        <li>变更到站</li>
+                    </ul>
+            </div>
+            <div class="rh1 bd1">
+                    <span>改签</span>
+            </div>
+            <div class="rh1">
+                    <h4>更多</h4>
+                    <ul>
+                        <li>中铁银通卡</li>
+                        <li>市郊快速铁路</li>
+                    </ul>
+            </div>
+            <div class="rh1 bd1">
+                    <span>广九直通车</span>
+                    <span style="margin-top:5px">国际列车</span>
+            </div>
+            </div>
+            
             <ul class="pic">
                 <li><img src="./images/banner19.jpg" alt=""></li>
                 <li><img src="./images/banner08.jpg" alt=""></li>
@@ -180,12 +212,15 @@
                         <div class="form">
                             <div class="go">
                                 出发地：<input type="text" placeholder="简拼/全拼/汉字">
+                                <a href=""><i class="icon-place"></i></a> 
                             </div>
                             <div class="go">
                                 到达地：<input type="text" placeholder="简拼/全拼/汉字">
+                                <a href=""><i class="icon-place1"></i></a> 
                             </div>
                             <div class="date">
                                 出发日期：<input type="text" placeholder="2019-04-25">
+                                <a href=""><i class="icon-date"></i></a> 
                             </div>
                             <div class="chk">
                                 学生 <input type="checkbox" name="" id="">
@@ -424,14 +459,16 @@
         $(".rb5 i").click(function(){
              $("html").animate({scrollTop:0},800);
         });
+        $(".nav-ul li[class!='nav-active' ]").hover(function(){
+             $(".dropdown").css("display","block");
+        },function(){
+            $(".dropdown").css("display","none");
+        });
         var picWidth = $(".pic");
         var imgWidth = $(".pic img");
         imgWidth.css("width", $(".lunbo").width);
         picWidth.css("width", $(".pic img").width() * 4);
-        // $(".dot li").click(function(){
-        //   $(this).siblings('li').removeClass('dotactive');
-        //   $(this).addClass('dotactive');
-        // });
+      
         $(".ticket-left div").click(function(){
          $(this).siblings('div').removeClass('cl');
          $(this).siblings('div').addClass('fc');
@@ -458,8 +495,8 @@
     var isgo=false;
     var timer;
     window.onload=function(){
-       var lilist=document.getElementsByClassName("dot")[0].getElementsByTagName("li");
-       lilist[0].style.opacity="1";
+      var lilist=document.getElementsByClassName("dot")[0].getElementsByTagName("li");
+      lilist[0].style.opacity="1";
     
       showTime();
       function showTime(){
@@ -483,21 +520,28 @@
            }
            for(var i=0;i<lilist.length;i++){
               lilist[i].style.opacity="0.3";
-           
+              lilist[count].style.opacity="1";
+       
+             
            }
-           lilist[count].style.opacity="1";
-
+          
+           
             
-          },4000
+          },4000);   
+      }
 
-          )
-      }
-      for(var i=0;i<lilist.length;i++){
-        lilist[i].onmouseover=function(){
-                  clearInterval(timer);
-        }
-      }
-      
+    $(".pic li").on("mouseover",function(){
+        clearInterval(timer);
+    });
+    $(".pic li").on("mouseout",function(){
+        showTime();
+    });
+   for(var i=0;i<lilist.length;i++){
+        lilist[i].onclick=function(){
+           lilist[i].style.opacity="1";
+       }
+   }
+   
     };
        
       
